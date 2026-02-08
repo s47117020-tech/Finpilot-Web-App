@@ -5,7 +5,7 @@ import { BudgetChart } from '@/components/dashboard/BudgetChart';
 import { GoalsSection } from '@/components/dashboard/GoalsSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { DollarSign, PieChart, Target, LogOut, Wallet } from 'lucide-react';
+import { DollarSign, PieChart, Target, LogOut, Wallet, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -82,6 +82,20 @@ const Dashboard = () => {
           </div>
         </div>
       </header>
+
+      {/* Budget Wrapped Banner */}
+      <div
+        className="bg-gradient-to-r from-[#2e4f21] via-[#1a3a12] to-[#2e4f21] border-b border-[#a0f1bd]/20 cursor-pointer hover:brightness-110 transition-all"
+        onClick={() => navigate('/wrapped')}
+      >
+        <div className="container mx-auto px-4 py-3 flex items-center justify-center gap-3">
+          <Sparkles className="w-4 h-4 text-[#a0f1bd] animate-pulse" />
+          <span className="text-sm text-white/90 font-medium">
+            ✨ Your <span className="text-[#a0f1bd] font-bold">{new Date().getFullYear() - 1} Budget Wrapped</span> is ready!
+          </span>
+          <span className="text-xs text-[#a0f1bd]/80 hidden sm:inline">View your year in review →</span>
+        </div>
+      </div>
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8 bg-white">

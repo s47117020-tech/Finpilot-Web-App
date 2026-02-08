@@ -116,6 +116,58 @@ export interface GoalResponse {
   expected_return: number;
 }
 
+// Wrapped (Year Review) Types
+export interface CategoryBreakdown {
+  category: string;
+  amount: number;
+  percentage: number;
+  icon: string;
+}
+
+export interface MonthlyData {
+  month: string;
+  income: number;
+  expenses: number;
+  savings: number;
+}
+
+export interface BiggestTransaction {
+  amount: number;
+  category: string;
+  date: string;
+  description: string;
+}
+
+export interface GoalsSummary {
+  total_goals: number;
+  completed: number;
+  missed: number;
+  total_saved: number;
+  total_target: number;
+}
+
+export interface WrappedSummary {
+  year: number;
+  user_name: string;
+  total_income: number;
+  total_expenses: number;
+  total_savings: number;
+  net_worth_change: number;
+  total_transactions: number;
+  average_monthly_spending: number;
+  top_categories: CategoryBreakdown[];
+  most_consistent_category: string;
+  biggest_transaction: BiggestTransaction | null;
+  monthly_data: MonthlyData[];
+  highest_spending_month: string;
+  most_savings_month: string;
+  goals_summary: GoalsSummary;
+  daily_average_spend: number;
+  transactions_per_month: number;
+  top_spending_day_of_week: string;
+  fun_comparisons: string[];
+}
+
 // API Service Object
 export const api = {
   // Auth endpoints
@@ -178,6 +230,15 @@ export const api = {
         method: 'POST',
         body: JSON.stringify(data),
       }),
+  },
+
+  // Wrapped (Year Review) endpoints
+  wrapped: {
+    getSummary: (userId: string, year: number) =>
+      apiCall<WrappedSummary>(
+        `/wrapped/summary?user_id=${userId}&year=${year}`,
+        { method: 'GET' }
+      ),
   },
 };
 

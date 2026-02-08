@@ -179,3 +179,64 @@
     background: var(--gradient-accent);
   }
 }
+
+/* ── Wrapped Animations ── */
+@keyframes wrapped-slide-in-right {
+  from { transform: translateX(100%) scale(0.95); opacity: 0; }
+  to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes wrapped-slide-in-left {
+  from { transform: translateX(-100%) scale(0.95); opacity: 0; }
+  to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes wrapped-fade-up {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes wrapped-counter {
+  from { opacity: 0; transform: scale(0.5) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes wrapped-glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(160, 241, 189, 0.15); }
+  50%      { box-shadow: 0 0 40px rgba(160, 241, 189, 0.35); }
+}
+
+@keyframes wrapped-bar-grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+.animate-wrapped-slide-right {
+  animation: wrapped-slide-in-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-wrapped-slide-left {
+  animation: wrapped-slide-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-wrapped-fade-up {
+  animation: wrapped-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-wrapped-counter {
+  animation: wrapped-counter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-wrapped-glow {
+  animation: wrapped-glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-wrapped-bar {
+  animation: wrapped-bar-grow 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: bottom;
+}
+
+/* Transition duration utilities used by wrapped cards */
+.duration-1500 { transition-duration: 1500ms; }
+.duration-2000 { transition-duration: 2000ms; }
+.duration-2500 { transition-duration: 2500ms; }

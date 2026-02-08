@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Wrapped from "./pages/Wrapped";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,22 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/wrapped" 
+              element={
+                <ProtectedRoute>
+                  <Wrapped />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/year-review/:year" 
+              element={
+                <ProtectedRoute>
+                  <Wrapped />
                 </ProtectedRoute>
               } 
             />

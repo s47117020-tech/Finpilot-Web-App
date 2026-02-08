@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import salary, dashboard, goals, auth
+from routers import salary, dashboard, goals, auth, wrapped
 
 app = FastAPI(title="Finance AI Backend")
 
@@ -18,6 +18,7 @@ app.include_router(auth.router)
 app.include_router(salary.router)
 app.include_router(dashboard.router)
 app.include_router(goals.router)
+app.include_router(wrapped.router)
 
 @app.get("/")
 def root():
